@@ -23,6 +23,11 @@ $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
 
+/* NAMESPACE  */
+
+if(!defined('ADMIN_NAMESPACE')) define('ADMIN_NAMESPACE', "App/Controllers/Administration");
+if(!defined('PUBLIC_NAMESPACE')) define('PUBLIC_NAMESPACE', "App/Controllers/PublicSection");
+
 /*
  * --------------------------------------------------------------------
  * Route Definitions
@@ -32,6 +37,12 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+
+$routes->get('/login', 'LoginController::index', ['as' => "login" , 'namespace' => PUBLIC_NAMESPACE]);
+$routes->get('/home', 'HomeController::index', ['as' => "home_public" , 'namespace' => PUBLIC_NAMESPACE]);
+$routes->get('/home/admin', 'HomeController::index', ['as' => "home_admin" , 'namespace' => ADMIN_NAMESPACE]);
+
+
 
 /*
  * --------------------------------------------------------------------
