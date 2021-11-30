@@ -35,8 +35,12 @@
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
         
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button> <br><br>
         </form>
+
+        <div class="copy"><i class="far fa-copyright"></i> 2017-2021</div><br>
+
+        <div class="hr"><a href="<?= base_url('/home') ?>">Ir a inicio público</a>&nbsp;&nbsp;<a href="<?= base_url('/home/admin') ?>">Ir a inicio privado</a></div>
 
     </div>
 
