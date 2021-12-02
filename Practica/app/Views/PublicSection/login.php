@@ -14,6 +14,12 @@
 </script>
 
 <?=  $this->endSection('javascript')  ?>
+<?=  $this->section('title')  ?>
+
+Login
+
+<?=  $this->endSection('title')  ?>
+
 
 
 

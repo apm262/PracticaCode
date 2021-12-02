@@ -1,12 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    HomeAdmin
-</body>
-</html>
+<?= $this->extend('Administration/base_layout') ?>
+
+<?=  $this->section('css')  ?>
+<link rel="stylesheet" href="<?= base_url('assets/Administration/css/admin.css') ?>"/>
+<?=  $this->endSection('css')  ?>
+
+
+<?=  $this->section('javascript')  ?>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+    });
+</script>
+
+<?=  $this->endSection('javascript')  ?>
+
+
+<?=  $this->section('title')  ?>
+
+Admin
+
+<?=  $this->endSection('title')  ?>
+
+
+<?=  $this->section('content')  ?>
+
+    <p class="ini">Inicio</p>
+
+
+<?=  $this->endSection('content')  ?>
