@@ -41,7 +41,9 @@ class Festivals extends Migration
             ],
             'category_id' => [
                 'type'  => 'INT',
-                'constraint' => 5
+                'constraint' => 5,
+                'unsigned' => true,
+                'null' => true
             ],
             'created_at' => [
                 'type' => 'DATETIME',
@@ -54,10 +56,6 @@ class Festivals extends Migration
             'deleted_at' => [
                 'type' => 'DATETIME',
                 'null' => false
-            ],
-            'rol_id' => [
-                'type'  => 'INT',
-                'constraint' => 5
             ]
             ]);
             $this->forge->addPrimaryKey('id');
@@ -69,6 +67,6 @@ class Festivals extends Migration
 
     public function down()
     {
-        $this->forge>dropTable('festivals');
+        $this->forge->dropTable('festivals');
     }
 }

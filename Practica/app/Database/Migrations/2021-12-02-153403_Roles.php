@@ -43,6 +43,6 @@ class Roles extends Migration
 
     public function down()
     {
-        $this->forge>dropTable('roles');
+        $this->forge->dropTable('roles');
     }
 }
