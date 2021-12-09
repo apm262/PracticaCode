@@ -1,8 +1,9 @@
 <?php
-
 namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
+use CodeIgniter\I18n\Time;
+use Faker\Factory;
 
 class Users extends Seeder
 {
@@ -12,7 +13,9 @@ class Users extends Seeder
 
         $this->db->query("ALTER TABLE users AUTO_INCREMENT=1");
 
-        $usersBuilder = Factory::create();
+        $usersBuilder = $this->db->table('users');
+
+        $faker = Factory::create();
 
         $users = [];
 
@@ -20,10 +23,12 @@ class Users extends Seeder
             $users[] = [
                 'username' => $faker->username,
                 'email' => $faker->email,
-                'password' => $faker->password,
+                'password' => password_hash($faker->password, PASSWORD_DEFAULT),
                 'name' => $faker->name,
                 'surname' => $faker->surname,
-                'rol_id' => $faker->rol_id
+                'rol_id' => $faker->rol_id,
+                'created_at'  =>Time::createFromTimestamp($faker->unixTime()),
+                'updated_at'  => Time::now()
             ];
         }
 

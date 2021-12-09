@@ -3,6 +3,8 @@
 namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
+use CodeIgniter\I18n\Time;
+use Faker\Factory;
 
 class Categories extends Seeder
 {
@@ -12,15 +14,24 @@ class Categories extends Seeder
 
         $this->db->query("ALTER TABLE categories AUTO_INCREMENT=1");
 
-        $categoriesBuilder = Factory::create();
+        $categoriesBuilder = $this->db->table('categories');
+
+        $faker = Factory::create();
 
         $categories = [];
 
-        for($i =1; $i<=20; $i++){
-            $categories[] = [
-                'name' => $faker->name
-            ];
-        }
+        $categories[] = [
+            'name' => 'Indie',
+            'created_at' => Time::createFromTimestamp($faker->unixTime()),
+            'updated_at'  => Time::now()
+        ];
+        
+        $categories[] = [
+            'name' => 'Rock',
+            'created_at' => Time::createFromTimestamp($faker->unixTime()),
+            'updated_at'  => Time::now()
+        ];
+        
 
         $categoriesBuilder->insertBatch($categories);
     }

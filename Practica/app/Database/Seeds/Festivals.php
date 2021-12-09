@@ -2,7 +2,9 @@
 
 namespace App\Database\Seeds;
 
+use Faker\Factory;
 use CodeIgniter\Database\Seeder;
+use CodeIgniter\I18n\Time;
 
 class Festivals extends Seeder
 {
@@ -12,7 +14,9 @@ class Festivals extends Seeder
 
         $this->db->query("ALTER TABLE festivals AUTO_INCREMENT=1");
 
-        $festivalsBuilder = Factory::create();
+        $festivalsBuilder = $this->db->table('festivals');
+
+        $faker = Factory::create();
 
         $festivals = [];
 
@@ -20,11 +24,13 @@ class Festivals extends Seeder
             $festivals[] = [
                 'name' => $faker->name,
                 'email' => $faker->email,
-                'date' => $faker->date,
+                'date' => $faker->Time('now'),
                 'address' => $faker->address,
                 'price' => $faker->price,
                 'image_url' => $faker->image_url,
-                'category_id' => $faker->category_id
+                'category_id' => $faker->category_id,
+                'created_at' => Time::createFromTimestamp($faker->unixTime()),
+                'updated_at'  => Time::now()
             ];
         }
 
