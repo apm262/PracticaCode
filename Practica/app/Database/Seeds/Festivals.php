@@ -31,3 +31,4 @@ class Festivals extends Seeder
         $festivalsBuilder->insertBatch($festivals);
     }
 }
+
