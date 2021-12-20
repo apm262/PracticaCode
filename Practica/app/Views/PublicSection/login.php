@@ -7,7 +7,11 @@
 
 <?=  $this->section('javascript')  ?>
 
+<script src="<?= base_url('assets/PublicSection/js/login.js') ?>"></script>
+
 <script type="text/javascript">
+    
+
     $(document).ready(function(){
 
     });
@@ -20,11 +24,6 @@ Login
 
 <?=  $this->endSection('title')  ?>
 
-
-
-
-
-
 <?=  $this->section('content')  ?>
 
 <center>
@@ -32,13 +31,13 @@ Login
 
         <img class="foto" src="<?= base_url('assets/PublicSection/img/logoinsti.png')  ?>">
 
-        <form>
+        <form method="POST" id="form">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Please Sign in</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+            <input type="email" class="form-control" name="username" id="username" aria-describedby="emailHelp" placeholder="Email">
         </div>
         <div class="mb-3">
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" id="password">
         </div>
         
         <button type="submit" class="btn btn-primary">Submit</button> <br><br>

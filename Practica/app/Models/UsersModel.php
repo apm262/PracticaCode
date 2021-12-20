@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Users extends Model
+class UsersModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'users';
@@ -12,7 +12,7 @@ class Users extends Model
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = Users::class;
-    protected $useSoftDeletes   = false;
+    protected $useSoftDeletes   = true;
     protected $protectFields    = true;
     protected $allowedFields    = ['username','email','password','name','surname','rol_id'];
 
@@ -39,4 +39,14 @@ class Users extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+
+    public function findUsers($username=null){
+        
+        $response = $this->where(['username' => $username])->orWhere(['email' => $username])->first();
+
+        return $response;
+    }
+
+    
 }

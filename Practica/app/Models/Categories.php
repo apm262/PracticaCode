@@ -39,4 +39,14 @@ class Categories extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function findCategories($id= null){
+
+        if(is_null($id)){
+            return $this->findAll();
+        }
+
+        return $this->where(['id' => $id])->first();
+    
+    }
 }

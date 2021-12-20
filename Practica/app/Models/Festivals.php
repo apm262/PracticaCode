@@ -39,4 +39,22 @@ class Festivals extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function findFestivals($id= null){
+
+        if(is_null($id)){
+            return $this->findAll();
+        }
+
+        return $this->where(['id' => $id])->first();
+    
+    }
+
+    public function findFestivalsByCategory($category_id){
+        if(is_null($category_id)){
+            return $this->findAll();
+        }
+
+        return $this->where(['category_id' => $category_id])->findAll();
+    }
 }

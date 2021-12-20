@@ -39,6 +39,7 @@ if(!defined('PUBLIC_NAMESPACE')) define('PUBLIC_NAMESPACE', "App/Controllers/Pub
 $routes->get('/', 'Home::index');
 
 $routes->get('/login', 'LoginController::index', ['as' => "login" , 'namespace' => PUBLIC_NAMESPACE]);
+$routes->post('/login/save', 'LoginController::verify', ['as' => "save_login" , 'namespace' => PUBLIC_NAMESPACE]);
 $routes->get('/home', 'HomeController::index', ['as' => "home_public" , 'namespace' => PUBLIC_NAMESPACE]);
 $routes->get('/home/admin', 'HomeController::index', ['as' => "home_admin" , 'namespace' => ADMIN_NAMESPACE]);
 

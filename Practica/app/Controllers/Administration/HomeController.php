@@ -8,6 +8,7 @@ class HomeController extends BaseController
 {
     public function index()
     {
+        
         return view("Administration/home_admin");
     }
 }
