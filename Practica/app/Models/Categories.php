@@ -49,4 +49,16 @@ class Categories extends Model
         return $this->where(['id' => $id])->first();
     
     }
+
+    public function findCategoriesId($id =null)
+    {
+        if(is_null($id)){
+            return $this->findAll();
+        }else  if($id==""){
+           return $this->findAll();
+        }else{
+        return $this->where(['id'=>$id])
+            ->first();
+        }
+    }
 }

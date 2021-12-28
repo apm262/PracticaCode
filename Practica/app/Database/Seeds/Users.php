@@ -25,13 +25,25 @@ class Users extends Seeder
                 'email' => $faker->email,
                 'password' => password_hash($faker->password, PASSWORD_DEFAULT),
                 'name' => $faker->name,
-                'surname' => $faker->surname,
-                'rol_id' => $faker->rol_id,
+                'surname' => $faker->lastName,
+                'rol_id' => '2',
                 'created_at'  =>Time::createFromTimestamp($faker->unixTime()),
                 'updated_at'  => Time::now()
             ];
         }
 
+        $users[] = [
+                    'username' => 'alfonso',
+                    'email' => 'alfonsopm08@gmail.com',
+                    'password' => password_hash('123', PASSWORD_DEFAULT),
+                    'name' => 'Alfonso',
+                    'surname' => 'Perez',
+                    'rol_id' => '1',
+                    'created_at'  =>Time::createFromTimestamp($faker->unixTime()),
+                    'updated_at'  => Time::now()
+                ];
+
+        //array_push($users,$users_clientes, $users_admin);
         $usersBuilder->insertBatch($users);
     }
 }

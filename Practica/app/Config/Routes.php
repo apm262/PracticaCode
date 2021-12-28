@@ -17,7 +17,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('LoginController');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -36,10 +36,10 @@ if(!defined('PUBLIC_NAMESPACE')) define('PUBLIC_NAMESPACE', "App/Controllers/Pub
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+//$routes->get('/', 'Home::index');
 
-$routes->get('/login', 'LoginController::index', ['as' => "login" , 'namespace' => PUBLIC_NAMESPACE]);
-$routes->post('/login/save', 'LoginController::verify', ['as' => "save_login" , 'namespace' => PUBLIC_NAMESPACE]);
+$routes->get('/', 'LoginController::index', ['as' => "login" ,'filter' => 'login_auth', 'namespace' => PUBLIC_NAMESPACE]);
+$routes->post('/login/save', 'LoginController::verify', ['as' => "verify_login" , 'namespace' => PUBLIC_NAMESPACE]);
 $routes->get('/home', 'HomeController::index', ['as' => "home_public" , 'namespace' => PUBLIC_NAMESPACE]);
 $routes->get('/home/admin', 'HomeController::index', ['as' => "home_admin" , 'namespace' => ADMIN_NAMESPACE]);
 

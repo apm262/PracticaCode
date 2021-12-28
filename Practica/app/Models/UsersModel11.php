@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-use App\Entities\Users;
 
 class UsersModel extends Model
 {
@@ -42,19 +41,12 @@ class UsersModel extends Model
     protected $afterDelete    = [];
 
 
-    public function find($username=null){
-        if(is_null($username)){
-            return $this->findAll();
-        }
-        
-        return $this->where(['username' => $username])->first();
-     
-    }
-
     public function findUsers($username=null){
         
         $response = $this->where(['username' => $username])->orWhere(['email' => $username])->first();
 
         return $response;
     }
+
+    
 }

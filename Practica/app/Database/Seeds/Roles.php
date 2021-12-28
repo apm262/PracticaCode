@@ -21,13 +21,17 @@ class Roles extends Seeder
 
         $roles = [];
 
-        for($i =1; $i<=20; $i++){
-            $roles[] = [
-                'name' => $faker->name,
-                'created_at'  =>Time::createFromTimestamp($faker->unixTime()),
-                'updated_at'  => Time::now()
-            ];
-        }
+       
+        $roles = [[
+            'name' => 'admin',
+            'created_at'  =>Time::createFromTimestamp($faker->unixTime()),
+            'updated_at'  => Time::now()
+        ],
+        [
+            'name' => 'app_client',
+            'created_at'  =>Time::createFromTimestamp($faker->unixTime()),
+            'updated_at'  => Time::now()
+        ]];
 
         $rolesBuilder->insertBatch($roles);
     }

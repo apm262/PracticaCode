@@ -59,7 +59,7 @@ class Users extends Migration
             ]
             ]);
             $this->forge->addPrimaryKey('id');
-            $this->forge->addForeignKey('rol_id','Roles','id','CASCADE','SET NULL');
+            $this->forge->addForeignKey('rol_id','roles','id','CASCADE','SET NULL');
             $this->forge->createTable('users');
 
             $this->db->enableForeignKeyChecks();

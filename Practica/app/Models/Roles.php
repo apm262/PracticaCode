@@ -40,6 +40,12 @@ class Roles extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
+    public function findRolesId($id=null){
 
+        if(is_null($id)){
+            return $this->findAll();
+        }
+        return $this->where(['id'=>$id])->first();
+    }
     
 }

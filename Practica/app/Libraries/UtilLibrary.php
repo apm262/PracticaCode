@@ -13,4 +13,10 @@ class UtilLibrary {
 
         return json_encode($response);
     }
+
+    public function comprobarRol($rol){
+        if($rol==1){
+            return true;
+        }return false;
+    }
 }
