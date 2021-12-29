@@ -7,7 +7,7 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Config\UserProfiles;
 
-class LoginAuth implements FilterInterface
+class AuthPublic implements FilterInterface
 {
     /**
      * Do whatever processing this filter needs to do.
@@ -29,13 +29,11 @@ class LoginAuth implements FilterInterface
         $session = session();
 
         if(is_null($session->get('username'))){
-
+            return redirect()->route("/");
         }else{
             $rol=$session->get('rol');
 
-            if($rol==UserProfiles::ADMIN_ROLE){
-                return redirect()->route("home_admin");
-            }else if($rol==UserProfiles::APP_CLIENT_ROLE){
+            if($rol==UserProfiles::APP_CLIENT_ROLE){
                 return redirect()->route("home_public");
             }
         }

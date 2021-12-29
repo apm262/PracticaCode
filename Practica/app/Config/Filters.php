@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use App\Filters\AuthPrivate;
+use App\Filters\AuthPublic;
 use App\Filters\LoginAuth;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
@@ -21,6 +23,8 @@ class Filters extends BaseConfig
         'toolbar'  => DebugToolbar::class,
         'honeypot' => Honeypot::class,
         'login_auth' => LoginAuth::class,
+        'private_auth' => AuthPrivate::class,
+        'public_auth' => AuthPublic::class,
     ];
 
     /**

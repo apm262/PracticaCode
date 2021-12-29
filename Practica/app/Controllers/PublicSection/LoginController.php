@@ -11,12 +11,8 @@ use Config\UserProfiles;
 class LoginController extends BaseController
 {
     public function index()
-    {
-        
-
+    {     
         return view("PublicSection/login");
-        
-
     }
 
     public function verify(){
