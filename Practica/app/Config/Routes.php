@@ -27,7 +27,7 @@ $routes->setAutoRoute(true);
 
 if(!defined('ADMIN_NAMESPACE')) define('ADMIN_NAMESPACE', "App/Controllers/Administration");
 if(!defined('PUBLIC_NAMESPACE')) define('PUBLIC_NAMESPACE', "App/Controllers/PublicSection");
-//if(!defined('REST_NAMESPACE')) define('PUBLIC_NAMESPACE', "App/Controllers/PublicSection");
+if(!defined('REST_NAMESPACE')) define('REST_NAMESPACE', "App/Controllers/Rest");
 
 /*
  * --------------------------------------------------------------------
@@ -49,18 +49,20 @@ if(!defined('PUBLIC_NAMESPACE')) define('PUBLIC_NAMESPACE', "App/Controllers/Pub
 $routes->group('',function($routes){
     $routes->get('/', 'LoginController::index', ['as' => "login" ,'filter' => 'login_auth', 'namespace' => PUBLIC_NAMESPACE]);
     $routes->post('/login/save', 'LoginController::verify', ['as' => "verify_login" , 'namespace' => PUBLIC_NAMESPACE]);
-    $routes->get('/home', 'HomeController::index', ['as' => "home_public" , 'namespace' => PUBLIC_NAMESPACE]);
+    $routes->get('/home', 'HomeController::index', ['as' => "home_public" ,'filter' => 'public_auth', 'namespace' => PUBLIC_NAMESPACE]);
+    $routes->get('/logout', 'LogoutController::index', ['as' => "logout" , 'namespace' => PUBLIC_NAMESPACE]);
 });
 
 //----------------PRIVATE ROUTES-------------
-$routes->group('',function($routes){
-    $routes->get('/home/admin', 'HomeController::index', ['as' => "home_admin" , 'namespace' => ADMIN_NAMESPACE]);
+$routes->group('admin',function($routes){
+    $routes->get('home_admin', 'HomeController::index', ['as' => "home_admin" ,'filter' => 'private_auth', 'namespace' => ADMIN_NAMESPACE]);
 });
 
 //---------------API REST ROUTES-------------
 $routes->group('rest',function($routes){
-    $routes->get('categories', 'CategoriesController::index', ['namespace' => ADMIN_NAMESPACE]);
-    $routes->get('categories/(:any)', 'CategoriesController::index/$1', ['namespace' => ADMIN_NAMESPACE]);
+    $routes->get('categories', 'CategoriesController::index', ['namespace' => REST_NAMESPACE]);
+    $routes->delete('categories', 'CategoriesController::deleteCategory', ['namespace' => REST_NAMESPACE]);
+    $routes->post('categories', 'CategoriesController::modifyAdd', ['namespace' => REST_NAMESPACE]);
 });
 
 /*

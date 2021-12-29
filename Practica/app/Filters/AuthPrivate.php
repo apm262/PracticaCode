@@ -29,12 +29,12 @@ class AuthPrivate implements FilterInterface
         $session = session();
 
         if(is_null($session->get('username'))){
-            return redirect()->route("/");
+            return redirect()->route("login");
         }else{
             $rol=$session->get('rol');
 
-            if($rol==UserProfiles::ADMIN_ROLE){
-                return redirect()->route("home_admin");
+            if($rol==UserProfiles::APP_CLIENT_ROLE){
+                return redirect()->route("home_public");
             }
         }
     }

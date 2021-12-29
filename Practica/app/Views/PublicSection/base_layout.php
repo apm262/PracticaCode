@@ -24,6 +24,7 @@
     <div id="container">
         <?= $this->renderSection("content")  ?>
     </div>
+    <a href="<?= base_url('/logout') ?>" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
     
 </body>
 </html>
