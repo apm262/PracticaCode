@@ -29,6 +29,8 @@ if(!defined('ADMIN_NAMESPACE')) define('ADMIN_NAMESPACE', "App/Controllers/Admin
 if(!defined('PUBLIC_NAMESPACE')) define('PUBLIC_NAMESPACE', "App/Controllers/PublicSection");
 if(!defined('REST_NAMESPACE')) define('REST_NAMESPACE', "App/Controllers/Rest");
 
+if(!defined('COMMAND_NAMESPACE')) define('COMMAND_NAMESPACE', "App/Controllers/Command");
+
 /*
  * --------------------------------------------------------------------
  * Route Definitions
@@ -63,6 +65,12 @@ $routes->group('rest',function($routes){
     $routes->get('categories', 'CategoriesController::index', ['namespace' => REST_NAMESPACE]);
     $routes->delete('categories', 'CategoriesController::deleteCategory', ['namespace' => REST_NAMESPACE]);
     $routes->post('categories', 'CategoriesController::modifyAdd', ['namespace' => REST_NAMESPACE]);
+});
+
+$routes->group('comands',function($routes){
+    $routes->cli('comando_uno', 'PrimerosComands::comandoUno', ['namespace' => COMMAND_NAMESPACE]);
+    $routes->cli('comando_dos', 'PrimerosComands::comandoDos', ['namespace' => COMMAND_NAMESPACE]);
+    $routes->cli('comando_tres', 'PrimerosComands::comandoTres', ['namespace' => COMMAND_NAMESPACE]);
 });
 
 /*
