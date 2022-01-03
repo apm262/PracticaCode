@@ -58,6 +58,11 @@ $routes->group('',function($routes){
 //----------------PRIVATE ROUTES-------------
 $routes->group('admin',function($routes){
     $routes->get('home_admin', 'HomeController::index', ['as' => "home_admin" ,'filter' => 'private_auth', 'namespace' => ADMIN_NAMESPACE]);
+    $routes->get('usuarios', 'UsuariosController::index', ['as' => "usuarios" ,'filter' => 'private_auth', 'namespace' => ADMIN_NAMESPACE]);
+    $routes->get('festivales', 'FestivalesController::index', ['as' => "festivales" ,'filter' => 'private_auth', 'namespace' => ADMIN_NAMESPACE]);
+    $routes->get('categorias', 'CategoriesController::index', ['as' => "categorias" ,'filter' => 'private_auth', 'namespace' => ADMIN_NAMESPACE]);
+    $routes->get('roles', 'RolesController::index', ['as' => "roles" ,'filter' => 'private_auth', 'namespace' => ADMIN_NAMESPACE]);
+
 });
 
 //---------------API REST ROUTES-------------

@@ -18,7 +18,7 @@
 
 <?=  $this->section('title')  ?>
 
-Inicio
+<?=  $title; ?>
 
 <?=  $this->endSection('title')  ?>
 

@@ -22,10 +22,9 @@
 
 <?=  $this->section('content')  ?>
 
-    <p class="ini">Inicio</p>
+    <p class="ini">Listado de festivales</p>
 
-    <h2>Bienvenido al panel admin</h2>
-    <p>Desde aquí podrás gestionar todos los contenidos de tu aplicación</p>
+    <h2>Aquí irá el listado de festivales</h2>
 
 
 <?=  $this->endSection('content')  ?>

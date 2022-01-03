@@ -4,14 +4,13 @@ namespace App\Controllers\Administration;
 
 use App\Controllers\BaseController;
 
-class HomeController extends BaseController
+class UsuariosController extends BaseController
 {
     public function index()
     {
         $data=array(
-            "title"=>"Inicio",
+            "title"=>"Usuarios",
         );
-        
-        return view("Administration/home_admin",$data);
+        return view("Administration/usuarios",$data);
     }
 }

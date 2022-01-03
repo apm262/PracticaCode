@@ -12,7 +12,10 @@ class LoginController extends BaseController
 {
     public function index()
     {     
-        return view("PublicSection/login");
+        $data=array(
+            "title"=>"Login",
+        );
+        return view("PublicSection/login",$data);
     }
 
     public function verify(){

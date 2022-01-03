@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Controllers\PublicSection;
+namespace App\Controllers\Administration;
 
 use App\Controllers\BaseController;
 
-class HomeController extends BaseController
+class FestivalesController extends BaseController
 {
     public function index()
     {
         $data=array(
             "title"=>"Festivales",
         );
-        return view("PublicSection/home",$data);
+        return view("Administration/festivales",$data);
     }
 }
