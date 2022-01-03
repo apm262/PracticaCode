@@ -57,4 +57,12 @@ class Festivals extends Model
 
         return $this->where(['category_id' => $category_id])->findAll();
     }
+
+    public function findFestivalsDatatable($limitStart,$limitLength){
+        return $this->limit($limitLength,$limitStart)->find();
+    }
+
+    public function festivalesDelete($id = null){
+        return $this -> where(['id' => $id])->delete();
+    }
 }

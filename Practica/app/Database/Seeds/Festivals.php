@@ -26,9 +26,9 @@ class Festivals extends Seeder
                 'email' => $faker->email,
                 'date' => $faker->Time('now'),
                 'address' => $faker->address,
-                'price' => $faker->price,
-                'image_url' => $faker->image_url,
-                'category_id' => $faker->category_id,
+                'price' => "40",
+                'image_url' => "url",
+                'category_id' => "1",
                 'created_at' => Time::createFromTimestamp($faker->unixTime()),
                 'updated_at'  => Time::now()
             ];
