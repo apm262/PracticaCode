@@ -60,6 +60,7 @@ $routes->group('admin',function($routes){
     $routes->get('home_admin', 'HomeController::index', ['as' => "home_admin" ,'filter' => 'private_auth', 'namespace' => ADMIN_NAMESPACE]);
     $routes->get('usuarios', 'UsuariosController::index', ['as' => "usuarios" ,'filter' => 'private_auth', 'namespace' => ADMIN_NAMESPACE]);
     $routes->get('festivales', 'FestivalesController::index', ['as' => "festivales" ,'filter' => 'private_auth', 'namespace' => ADMIN_NAMESPACE]);
+
     $routes->get('categorias', 'CategoriesController::index', ['as' => "categorias" ,'filter' => 'private_auth', 'namespace' => ADMIN_NAMESPACE]);
     $routes->get('roles', 'RolesController::index', ['as' => "roles" ,'filter' => 'private_auth', 'namespace' => ADMIN_NAMESPACE]);
 
@@ -67,7 +68,8 @@ $routes->group('admin',function($routes){
     $routes->post('mostrar_festivales', 'FestivalesController::getFestivalsData', ['as' => "mostrar_festivales" ,'filter' => 'private_auth', 'namespace' => ADMIN_NAMESPACE]);
     $routes->delete('delete_festivales', 'FestivalesController::deleteFest', ['as' => "delete_festivales" ,'filter' => 'private_auth', 'namespace' => ADMIN_NAMESPACE]);
 
-    $routes->get('festivals/view/edit', 'FestivalesController::viewEditFestival', ['as' => "festivals_view_edit" ,'filter' => 'private_auth', 'namespace' => ADMIN_NAMESPACE]);
+    //Nuevo y editar
+    $routes->get('festivals/view/edit', 'FestivalesController::viewEditFestival', ['as' => 'festivals_view_edit' ,'filter' => 'private_auth', 'namespace' => ADMIN_NAMESPACE]);
     $routes->get('festivals/view/edit/(:any)', 'FestivalesController::viewEditFestival/$1', ['filter' => 'private_auth', 'namespace' => ADMIN_NAMESPACE]);
 
 });
